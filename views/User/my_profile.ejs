@@ -1,0 +1,412 @@
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h3 class="text-themecolor">My profile</h3>
+    </div>
+    <div class="col-md-7 align-self-center">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item">My profile</li>
+        </ol>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <!-- Row -->
+    <div class="row">
+        <!-- Column -->
+        <div class="col-lg-4 col-xlg-3 col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <center class="m-t-30"> <img src="/images/users/<%= profile.profile_pic_url %>" class="img-circle" width="150" />
+                        <h4 class="card-title m-t-10"><%= profile.first_name %> <%= profile.last_name %></h4>
+                        <h6 class="card-subtitle"><%= profile.account_type %></h6>
+                    </center>
+                </div>
+                <div>
+                    <hr> </div>
+                <div class="card-body">
+                    <small class="text-muted">Email address </small>
+                    <h6><%= profile.email %></h6>
+
+                    <small class="text-muted p-t-30 db">Phone</small>
+                    <h6><%= profile.contact_no %></h6>
+                    <% if(profile.account_type === 'REGIONAL ADMIN'){ %>
+
+                        <small class="text-muted p-t-30 db">Province</small>
+                        <h6><%= profile.province_name %></h6>
+                        <small class="text-muted p-t-30 db">District</small>
+                        <h6><%= profile.district_name %></h6>
+
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <!-- Column -->
+        <!-- Column -->
+        <div class="col-lg-8 col-xlg-9 col-md-7">
+            <div class="card">
+                <div class="card-body">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#profile" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Edit profile</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#password" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Change password</span></a> </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content tabcontent-border">
+                        <div class="tab-pane active" id="profile" role="tabpanel">
+                            <div class="p-20">
+                                <div class="col-lg-12">
+                                    <div class="card card-outline-info">
+                                        <div class="card-body">
+                                            <form id="form_update_profile" name="form_update_profile" enctype="multipart/form-data" role="form" method="POST" class="form-horizontal">
+                                                <div class="form-body">
+                                                    <h3 class="box-title">Edit profile form</h3>
+                                                    <hr class="m-t-0 m-b-40">
+                                                    <div class="row p-t-20">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label">First Name</label>
+                                                                <input type="text" id="txt_first_name" name="txt_first_name" class="form-control">
+                                                                <input type="hidden" id="txt_uid" value="<%= profile.uid %>" name="txt_uid" class="form-control">
+                                                                <input type="hidden" id="txt_account_type" value="<%= profile.account_type %>" name="txt_account_type" class="form-control">
+                                                                <input type="hidden" id="txt_current_pic_url" name="txt_current_pic_url" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label">Last Name</label>
+                                                                <input type="text" id="txt_last_name" name="txt_last_name" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row p-t-20">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label">E-mail Address</label>
+                                                                <input type="text" id="txt_email" name="txt_email" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label">Contact No</label>
+                                                                <input type="text" id="txt_tel" name="txt_tel" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row p-t-20">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="input-file-now" class="control-label">Profile picture</label>
+                                                                <input type="file" id="txt_img" name="txt_img" data-allowed-file-extensions="jpg JPG png PNG" data-height="200" data-max-file-size="1M" class="dropify" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="form-actions">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-md-offset-3 col-md-9">
+                                                                    <button type="submit" class="btn btn-warning">Update</button>
+                                                                    <button type="reset" class="btn btn-inverse">Clear</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6"> </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="password" role="tabpanel">
+                            <div class="p-20">
+                                <div class="col-lg-12">
+                                    <div class="card card-outline-info">
+                                        <div class="card-body">
+                                            <form id="form_update_password" name="form_update_password" role="form" method="POST" class="form-horizontal">
+                                                <div class="form-body">
+                                                    <h3 class="box-title">Edit user password form</h3>
+                                                    <hr class="m-t-0 m-b-40">
+                                                    <div class="row p-t-20">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label">Password</label>
+                                                                <input type="password" id="txt_password" name="txt_password" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label">Confirm Password</label>
+                                                                <input type="password" id="txt_confirm_password" name="txt_confirm_password" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="form-actions">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-md-offset-3 col-md-9">
+                                                                    <button type="submit" class="btn btn-warning">Update</button>
+                                                                    <button type="reset" class="btn btn-inverse">Clear</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6"> </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Column -->
+    </div>
+    <!-- Row -->
+    <!-- ============================================================== -->
+    <!-- End Page Content -->
+    <!-- ============================================================== -->
+</div>
+
+<script>
+    $(document).ready(function() {
+        $("#txt_email").val('');
+        $("#txt_password").val('');
+        $("#txt_confirm_password").val('');
+        $("#txt_first_name").val('');
+        $("#txt_last_name").val('');
+        $(".dropify-clear").trigger("click");
+        $("#txt_tel").val('');
+
+        firebase.database().ref('backend_users').child($('#txt_uid').val()).on('value', function (snapshot){
+            $("#page_load").show();
+            $("#txt_email").val(snapshot.val().email);
+            $("#txt_first_name").val(snapshot.val().first_name);
+            $("#txt_last_name").val(snapshot.val().last_name);
+            $("#txt_tel").val(snapshot.val().contact_no);
+            $("#txt_uid").val(snapshot.val().uid);
+            $("#txt_current_pic_url").val(snapshot.val().profile_pic_url);
+            $('.dropify').dropify({
+                "defaultFile": "/images/users/"+snapshot.val().profile_pic_url,
+                "data-allowed-file-extensions" : 'jpg JPG png PNG',
+                "data-max-file-size" : '1M',
+                "data-height" : 300,
+                "messages": {
+                    default: 'Click here to select image.',
+                    replace: 'Click here again if you want to change image.',
+                    remove: 'Remove',
+                    error: 'Ooops, Something went wrong.'
+                }
+            });
+            $("#page_load").hide();
+        });
+
+        $("#form_update_profile").validate({
+            ignore: [],
+            rules: {
+                txt_first_name: {
+                    required: true
+                },
+                txt_last_name: {
+                    required: true
+                },
+                txt_email: {
+                    required: true,
+                    email: true
+                },
+                txt_tel:{
+                    required: true,
+                    digits: true,
+                    minlength: 10,
+                    maxlength:10
+                }
+            },
+            messages: {
+                txt_first_name: "First name required.!",
+                txt_last_name: "Last name required.!",
+                txt_email: {
+                    required: "Email address required.!",
+                    email: "Please check your email address format.!"
+                },
+                txt_tel:{
+                    required: "Contact no required.!",
+                    digits: "Contact no can have digits only.!",
+                    minlength: "Contact no can have 10 digits only.!",
+                    maxlength: "Contact no can have 10 digits only.!"
+                }
+
+            },
+            highlight: function(element) {
+                $(element).addClass('error');
+            }, unhighlight: function(element) {
+                $(element).removeClass('error');
+            },
+            submitHandler: function(form){
+                $("#page_load").show();
+                let formData = new FormData(form);
+
+                $.ajax({
+                    url: '/profile/updateProfile',
+                    data: formData,
+                    dataType: 'json',
+                    method: 'post',
+                    processData: false,
+                    enctype: 'multipart/form-data',
+                    contentType: false,
+                    cache: false,
+                    error: function(error){
+                        $("#page_load").hide();
+                        $.toast({
+                            heading: 'Error',
+                            text: 'Internal Server Error!',
+                            position: 'top-right',
+                            loaderBg:'#effff8',
+                            icon: 'error',
+                            hideAfter: 3500
+                        });
+                    },
+                    success: function(r){
+                        $("#page_load").hide();
+                        $("#txt_email").val('');
+                        $("#txt_first_name").val('');
+                        $("#txt_last_name").val('');
+                        $(".dropify-clear").trigger("click");
+                        $("#txt_tel").val('');
+
+
+                        if(r.status === 200){
+                            $.toast({
+                                heading: 'Success',
+                                text: r.message,
+                                position: 'top-right',
+                                loaderBg:'#effff8',
+                                icon: 'info',
+                                hideAfter: 3500
+                            });
+
+                            swal({
+                                title: "Please verify your account and login again.",
+                                type: "warning",
+                                confirmButtonColor: "#fcb03b",
+                                confirmButtonText: "OK",
+                                closeOnConfirm: false
+                            }, function(isConfirm){
+                                if (isConfirm)
+                                {
+                                    window.location.href = "/";
+                                }
+                            });
+                        }
+
+                        if(r.status == 500){
+                            $.toast({
+                                heading: 'Error',
+                                text: r.message,
+                                position: 'top-right',
+                                loaderBg:'#effff8',
+                                icon: 'error',
+                                hideAfter: 3500
+                            });
+                        }
+                    }
+                });
+            }
+        });
+
+
+        $("#form_update_password").validate({
+            ignore: [],
+            rules: {
+                txt_password: {
+                    required: true
+                },
+                txt_confirm_password: {
+                    required: true,
+                    equalTo: '#txt_password'
+                }
+            },
+            messages: {
+                txt_password: "Password required.!",
+                txt_confirm_password: {
+                    required: "Confirm password required.!",
+                    equalTo: "Password and confirm password is not matching!."
+                }
+            },
+            highlight: function(element) {
+                $(element).addClass('error');
+            }, unhighlight: function(element) {
+                $(element).removeClass('error');
+            },
+            submitHandler: function(form){
+                $("#page_load").show();
+                $.ajax({
+                    url: '/profile/changeSuperPassword',
+                    data: $('#form_update_password').serializeArray(),
+                    dataType: 'json',
+                    method: 'post',
+                    error: function(error){
+                        $("#page_load").hide();
+                        $.toast({
+                            heading: 'Error',
+                            text: 'Internal Server Error!',
+                            position: 'top-right',
+                            loaderBg:'#effff8',
+                            icon: 'error',
+                            hideAfter: 3500
+                        });
+                    },
+                    success: function(r){
+                        $("#page_load").hide();
+                        $("#txt_password").val('');
+                        $("#txt_confirm_password").val('');
+
+                        if(r.status === 200){
+                            $.toast({
+                                heading: 'Success',
+                                text: r.message,
+                                position: 'top-right',
+                                loaderBg:'#effff8',
+                                icon: 'info',
+                                hideAfter: 3500
+                            });
+                        }
+
+                        if(r.status == 500){
+                            $.toast({
+                                heading: 'Error',
+                                text: r.message,
+                                position: 'top-right',
+                                loaderBg:'#effff8',
+                                icon: 'error',
+                                hideAfter: 3500
+                            });
+                        }
+                    }
+                });
+            }
+        });
+
+
+    });
+
+</script>

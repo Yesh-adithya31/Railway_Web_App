@@ -1,0 +1,65 @@
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- User profile -->
+        <div class="user-profile">
+            <!-- User profile image -->
+            <div class="profile-img"> <img src="/images/users/<%= profile.profile_pic_url %>" alt="user" />
+                <!-- this is blinking heartbit-->
+                <div class="notify setpos"> </div>
+            </div>
+            <!-- User profile text-->
+            <div class="profile-text">
+                <h5><%= profile.first_name+" "+profile.last_name%></h5>
+                <h6 class="text-muted"><%= profile.account_type %></h6>
+            </div>
+        </div>
+        <!-- End User profile text-->
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <li class="nav-devider"></li>
+                <li> <a class="waves-effect waves-dark" href="/dashboard" aria-expanded="false"><i
+                            class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a>
+                </li>
+
+                <% if(profile.privileges.create_user === 1){ %>
+
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            class="mdi mdi-account-group"></i><span class="hide-menu">Users</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <% if(profile.account_type.toString() === 'SUPER ADMIN'){ %>
+                        <li><a href="/user">Super Admin</a></li>
+                        <!-- <li><a href="/user/regional_admin">Regional Admin</a></li>
+                        <li><a href="/user/manager">Manager</a></li>
+                        <li><a href="/user/coordinator">Coordinator</a></li> -->
+                        <% } %>
+                        <!-- <% if(profile.account_type.toString() === 'REGIONAL ADMIN'){ %>
+                        <li><a href="/user/regional_admin">Regional Admin</a></li>
+                        <li><a href="/user/manager">Manager</a></li>
+                        <li><a href="/user/coordinator">Coordinator</a></li>
+                        <% } %>
+                        <% if(profile.account_type.toString() === 'MANAGER'){ %>
+                        <li><a href="/user/manager">Manager</a></li>
+                        <li><a href="/user/coordinator">Coordinator</a></li>
+                        <% } %>
+                        <% if(profile.account_type.toString() === 'COORDINATOR'){ %>
+                        <li><a href="/user/coordinator">Coordinator</a></li>
+                        <% } %> -->
+                    </ul>
+                </li>
+
+                <% } %>
+
+                <% if(profile.account_type.toString() === 'SUPER ADMIN'){ %>
+                <li> <a class="waves-effect waves-dark" href="/trainSchedule" aria-expanded="false"><i
+                    class="mdi mdi-post"></i><span class="hide-menu">Train Schedule</span></a>
+                </li>
+                <% } %>
+
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>

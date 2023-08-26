@@ -1,0 +1,835 @@
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h3 class="text-themecolor">Manage Manager</h3>
+    </div>
+    <div class="col-md-7 align-self-center">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Users</a></li>
+            <li class="breadcrumb-item active">Manage manager</li>
+        </ol>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <!-- Row -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div id="div_button" class="col-md-offset-3 col-md-9">
+                    <button onclick="show_insert_form()" class="btn btn-info">Create manager</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6"> </div>
+    </div><br>
+    <!-- Row -->
+    <!-- Row -->
+    <div id="div_add">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-outline-info">
+                    <div id="heading" class="card-header">
+                        <h4 class="m-b-0 text-white">Manager create form</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="form_insert" name="form_insert" enctype="multipart/form-data" role="form" method="POST" class="form-horizontal">
+                            <div class="form-body">
+                                <h3 class="box-title">Manager information</h3>
+                                <hr class="m-t-0 m-b-40">
+
+                                <div class="row p-t-20">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Province</label>
+                                            <select class="form-control" id="cmb_province" name="cmb_province" tabindex="1"></select>
+                                            <input type="hidden" id="txt_province_name" name="txt_province_name" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">District</label>
+                                            <select class="form-control" id="cmb_district" name="cmb_district" tabindex="1"></select>
+                                            <input type="hidden" id="txt_district_name" name="txt_district_name" class="form-control">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row p-t-20">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">First Name</label>
+                                            <input type="text" id="txt_first_name" name="txt_first_name" class="form-control">
+                                            <input type="hidden" id="txt_uid" name="txt_uid" value="<%= profile.uid  %>" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Last Name</label>
+                                            <input type="text" id="txt_last_name" name="txt_last_name" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row p-t-20">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">E-mail Address</label>
+                                            <input type="text" id="txt_email" name="txt_email" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Contact No</label>
+                                            <input type="text" id="txt_tel" name="txt_tel" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row p-t-20">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Password</label>
+                                            <input type="password" id="txt_password" name="txt_password" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Confirm Password</label>
+                                            <input type="password" id="txt_confirm_password" name="txt_confirm_password" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row p-t-20">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="input-file-now" class="control-label">Profile picture</label>
+                                            <input type="file" id="txt_img" name="txt_img" data-allowed-file-extensions="jpg JPG png PNG" data-height="200" data-max-file-size="1M" class="dropify" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Privileges</label>
+                                            </br></br>
+                                            <input type="checkbox" id="chk_create_account" name="chk_create_account" value="1" class="chk-col-amber"/>
+                                            <label for="chk_create_account">Create user account</label>
+                                            </br>
+                                            <input type="checkbox" id="chk_taxi_access" name="chk_taxi_access" value="1" class="chk-col-amber"/>
+                                            <label for="chk_taxi_access">Taxi Access</label>
+                                            </br>
+                                            <input type="checkbox" id="chk_food_access" name="chk_food_access" value="1" class="chk-col-amber"/>
+                                            <label for="chk_food_access">Food Access</label>
+                                            </br>
+                                            <input type="checkbox" id="chk_grocery_access" name="chk_grocery_access" value="1" class="chk-col-amber"/>
+                                            <label for="chk_grocery_access">Grocery Access</label>
+                                            </br>
+                                            <input type="checkbox" id="chk_pharmacy_access" name="chk_pharmacy_access" value="1" class="chk-col-amber"/>
+                                            <label for="chk_pharmacy_access">Pharmacy Access</label>
+                                            </br>
+                                            <input type="checkbox" id="chk_courier_access" name="chk_courier_access" value="1" class="chk-col-amber"/>
+                                            <label for="chk_courier_access">Courier Access</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div id="submit_button" class="col-md-offset-3 col-md-9">
+                                                <button type="submit" class="btn btn-warning">Create</button>
+                                                <button type="reset" class="btn btn-inverse">Clear</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"> </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Row -->
+
+    <div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div id="modal_name">
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <form id="form_update" name="form_update" role="form" method="POST">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="control-label">Province</label>
+                            <select class="form-control" id="edit_cmb_province" name="edit_cmb_province" tabindex="1"></select>
+                            <input type="hidden" id="edit_txt_province_name" name="edit_txt_province_name" class="form-control">
+                            <input type="hidden" id="edit_txt_uid" name="edit_txt_uid" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">District</label>
+                            <select class="form-control" id="edit_cmb_district" name="edit_cmb_district" tabindex="1"></select>
+                            <input type="hidden" id="edit_txt_district_name" name="edit_txt_district_name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Privileges</label>
+                            </br>
+                            </br>
+                            <input type="checkbox" id="edit_chk_create_account" name="edit_chk_create_account" value="1" class="chk-col-amber"/>
+                            <label for="edit_chk_create_account">Create user account</label>
+                            </br>
+                            <input type="checkbox" id="edit_chk_taxi_access" name="edit_chk_taxi_access" value="1" class="chk-col-amber"/>
+                            <label for="edit_chk_taxi_access">Taxi Access</label>
+                            </br>
+                            <input type="checkbox" id="edit_chk_food_access" name="edit_chk_food_access" value="1" class="chk-col-amber"/>
+                            <label for="edit_chk_food_access">Food Access</label>
+                            </br>
+                            <input type="checkbox" id="edit_chk_grocery_access" name="edit_chk_grocery_access" value="1" class="chk-col-amber"/>
+                            <label for="edit_chk_grocery_access">Grocery Access</label>
+                            </br>
+                            <input type="checkbox" id="edit_chk_pharmacy_access" name="edit_chk_pharmacy_access" value="1" class="chk-col-amber"/>
+                            <label for="edit_chk_pharmacy_access">Pharmacy Access</label>
+                            </br>
+                            <input type="checkbox" id="edit_chk_courier_access" name="edit_chk_courier_access" value="1" class="chk-col-amber"/>
+                            <label for="edit_chk_courier_access">Courier Access</label>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger waves-effect waves-light">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-outline-info">
+                <div class="card-header">
+                    <h4 class="m-b-0 text-white">User details</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive m-t-40">
+                        <table id="myTable" class="table table-bordered table-striped">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Row -->
+</div>
+
+<script>
+
+    function show_insert_form(){
+        $('#div_button').html('<button onclick="hide_insert_form()" class="btn btn-info">Hide Form</button>');
+        $("#div_add").show();
+    }
+
+    function hide_insert_form(){
+        $('#div_button').html('<button onclick="show_insert_form()" class="btn btn-info">Create manager</button>');
+        $("#div_add").hide();
+    }
+
+    function feedDT(dataSrc){
+        $('#myTable').DataTable({
+            "bDestroy": true,
+            data: dataSrc,
+            language: {
+                "emptyTable": "No files to show..."
+            },
+            columns: [
+                { title: "Profile Pic",
+                    mRender: function (data) {
+                        return '<img src="/images/users/'+data+'" alt="user" width="30" class="img-circle" /> '
+                    }
+                },
+                { title: "First Name" },
+                { title: "Last Name" },
+                { title: "E-mail" },
+                { title: "Contact No" },
+                { title: "Province" },
+                { title: "District" },
+                { title: "Type" },
+                { title: "status",
+                    mRender: function (data) {
+                        if(data === 1){
+                            return '<span class="label label-info">Active</span>'
+                        }
+                        if(data === 0){
+                            return '<span class="label label-danger">Blocked</span>'
+                        }
+                    }
+                },
+                { title: "Action",
+                    mRender: function (data) {
+                        let fields = data.split('-');
+                        if(fields[0] === '1'){
+                            return '<div class="col-md-12"> <div class="btn-group btn-group-xs col-md-4"><button onclick="block_account(\''+data+'\');" class="btn btn-danger"><i class="ti-na"></i></button></div>' +
+                                '<div class="btn-group btn-group-xs col-md-4"><button onclick="get_user_data(\''+data+'\');" class="btn btn-warning"><i class="ti-pencil"></i></button></div>' +
+                                '<div class="btn-group btn-group-xs col-md-4"><button onclick="delete_account(\''+fields[1]+'\');" class="btn btn-danger"><i class="ti-trash"></i></button></div> </div>'
+                        }if(fields[0] === '0'){
+                            return '<div class="col-md-12"> <div class="btn-group btn-group-xs col-md-4"><button onclick="block_account(\''+data+'\');" class="btn btn-success"><i class="ti-check-box"></i></button></div>' +
+                                '<div class="btn-group btn-group-xs col-md-4"><button onclick="get_user_data(\''+data+'\');" class="btn btn-warning"><i class="ti-pencil"></i></button></div>' +
+                                '<div class="btn-group btn-group-xs col-md-4"><button onclick="delete_account(\''+fields[1]+'\');" class="btn btn-danger"><i class="ti-trash"></i></button></div> </div>'
+                        }
+                    }
+                }
+            ]
+        });
+    }
+
+    function delete_account(data){
+        $("#page_load").show();
+        swal({
+            title: "Do you want to remove this account?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#fcb03b",
+            confirmButtonText: "Yes, remove it!",
+            cancelButtonText: "No, cancel it!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        }, function(isConfirm){
+            if (isConfirm)
+            {
+                $.ajax({
+                    url: "/user/removeSuperUser",
+                    data: {ID : data},
+                    method: "post",
+                    dataType: "json",
+                    error: function(error){
+                        $("#page_load").hide();
+                        swal("Failed", "The operation which you perform is failed!", "error");
+                    },
+                    success: function(r){
+                        $("#page_load").hide();
+                        if(r.status === 200){
+                            swal("Removed!", r.message, "success");
+                        }
+
+                        if(r.status == 500){
+                            swal("Failed", r.message, "error");
+                        }
+                    }
+                });
+            }
+            else {
+                swal("Cancelled", "The operation cancelled by the user", "error");
+            }
+        });
+    }
+
+    function block_account(data){
+
+        let fields = data.split('-');
+        if(fields[0] === '1'){
+
+            swal({
+                title: "Do you want to block this account?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#fcb03b",
+                confirmButtonText: "Yes, block it!",
+                cancelButtonText: "No, cancel it!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }, function(isConfirm){
+                if (isConfirm)
+                {
+                    $.ajax({
+                        url: "/user/blockSuperUser",
+                        data: {
+                            ID : fields[1],
+                            status: fields[0]
+                        },
+                        method: "post",
+                        dataType: "json",
+                        error: function(error){
+                            swal("Failed", "The operation which you perform is failed!", "error");
+                        },
+                        success: function(r){
+                            if(r.status === 200){
+                                swal(r.message, r.message, "success");
+                            }
+
+                            if(r.status === 500){
+                                swal(r.message, r.message, "error");
+                            }
+                        }
+                    });
+                }
+                else {
+                    swal("Cancelled", "The operation cancelled by the user", "error");
+                }
+            });
+
+        }
+        if(fields[0] === '0'){
+
+            swal({
+                title: "Do you want to unblock this account?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#fcb03b",
+                confirmButtonText: "Yes, unblock it!",
+                cancelButtonText: "No, cancel it!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }, function(isConfirm){
+                if (isConfirm)
+                {
+                    $.ajax({
+                        url: "/user/blockSuperUser",
+                        data: {
+                            ID : fields[1],
+                            status: fields[0]
+                        },
+                        method: "post",
+                        dataType: "json",
+                        error: function(error){
+                            swal("Failed", "The operation which you perform is failed!", "error");
+                        },
+                        success: function(r){
+                            if(r.status === 200){
+                                swal(r.message, r.message, "success");
+                            }
+
+                            if(r.status === 500){
+                                swal(r.message, r.message, "error");
+                            }
+                        }
+                    });
+                }
+                else {
+                    swal("Cancelled", "The operation cancelled by the user", "error");
+                }
+            });
+
+        }
+    }
+
+    function get_user_data(data){
+        $("#page_load").show();
+        let fields = data.split('-');
+
+        firebase.database().ref('backend_users').child(fields[1]).on('value', function (snapshot){
+
+            $('#div_button').html('<button onclick="hide_insert_form()" class="btn btn-info">Hide Form</button>');
+            $('#modal_name').html('<h4 class="modal-title">'+snapshot.val().first_name+' '+snapshot.val().last_name +'</h4><h6 class="modal-title">UID: '+snapshot.val().uid+'</h6>');
+            $("#div_add").hide();
+
+            $('#responsive-modal').modal('show');
+
+            $('#edit_txt_uid').val(snapshot.val().uid);
+            $('#edit_txt_province_name').val(snapshot.val().province_name);
+            $('#edit_txt_district_name').val(snapshot.val().district_name);
+
+            if(snapshot.val().privileges.courier_access === 1)
+                $("#edit_chk_courier_access").prop("checked", true);
+            else
+                $("#edit_chk_courier_access").prop("checked", false);
+
+            if(snapshot.val().privileges.create_user === 1)
+                $("#edit_chk_create_account").prop("checked", true);
+            else
+                $("#edit_chk_create_account").prop("checked", false);
+
+            if(snapshot.val().privileges.food_access === 1)
+                $("#edit_chk_food_access").prop("checked", true);
+            else
+                $("#edit_chk_food_access").prop("checked", false);
+
+            if(snapshot.val().privileges.grocery_access === 1)
+                $("#edit_chk_grocery_access").prop("checked", true)
+            else
+                $("#edit_chk_grocery_access").prop("checked", false)
+
+            if(snapshot.val().privileges.pharmacy_access === 1)
+                $("#edit_chk_pharmacy_access").prop("checked", true);
+            else
+                $("#edit_chk_pharmacy_access").prop("checked", false);
+
+            if(snapshot.val().privileges.taxi_access === 1)
+                $("#edit_chk_taxi_access").prop("checked", true);
+            else
+                $("#edit_chk_taxi_access").prop("checked", false);
+
+
+            firebase.database().ref('web_data').child('province').on('value', function (snapshot){
+                if(snapshot.exists()){
+                    $('#edit_cmb_province').empty();
+                    $('#edit_cmb_province').append($('<option>', {value:'', text:'Select Province'}));
+                    snapshot.forEach(function(childSnapshot){
+                        firebase.database().ref('web_data').child('province').child(childSnapshot.key).once('value', function (snapshot1){
+                            let storageObj = snapshot1.val();
+                            $('#edit_cmb_province').append($('<option>', {value:storageObj.id, text:storageObj.name}));
+                        });
+                    });
+                }
+            });
+
+
+            $("#edit_cmb_province option[value="+snapshot.val().pro_id+"]").attr('selected', 'selected');
+
+
+            firebase.database().ref('web_data').child('province').child(snapshot.val().pro_id).child('district').once('value', function (snapshot4){
+                if(snapshot4.exists()){
+                    $('#edit_cmb_district').empty();
+                    $('#edit_cmb_district').append($('<option>', {value:'', text:'Select Province'}));
+                    snapshot4.forEach(function(childSnapshot){
+                        firebase.database().ref('web_data').child('province').child(snapshot.val().pro_id).child('district').child(childSnapshot.key).once('value', function (snapshot1){
+                            let storageObj = snapshot1.val();
+                            $('#edit_cmb_district').append($('<option>', {value:storageObj.d_id, text:storageObj.d_name}));
+                            $("#edit_cmb_district option[value="+snapshot.val().des_id+"]").attr('selected', 'selected');
+                            $("#page_load").hide();
+                        });
+                    });
+                }
+            });
+        });
+
+    }
+
+    $(document).ready(function() {
+
+        $("#div_add").hide();
+        $("#div_edit").hide();
+        $("#txt_first_name").val('');
+        $("#txt_last_name").val('');
+        $("#txt_email").val('');
+        $("#txt_password").val('');
+        $("#txt_confirm_password").val('');
+        $("#txt_tel").val('');
+        $(".dropify-clear").trigger("click");
+
+        $("#chk_create_account").prop("checked", false);
+        $("#chk_food_access").prop("checked", false);
+        $("#chk_grocery_access").prop("checked", false);
+        $("#chk_pharmacy_access").prop("checked", false);
+        $("#chk_taxi_access").prop("checked", false);
+        $("#chk_courier_access").prop("checked", false);
+
+        $("#edit_chk_create_account").prop("checked", false);
+        $("#edit_chk_food_access").prop("checked", false);
+        $("#edit_chk_grocery_access").prop("checked", false);
+        $("#edit_chk_pharmacy_access").prop("checked", false);
+        $("#edit_chk_taxi_access").prop("checked", false);
+        $("#edit_chk_courier_access").prop("checked", false);
+
+        firebase.database().ref('backend_users').on('value', function (snapshot){
+            let dataSrc = [];
+            let count = 0;
+            if(snapshot.exists()){
+                snapshot.forEach(function(childSnapshot){
+                    firebase.database().ref('backend_users').child(childSnapshot.key).on('value', function (snapshot1){
+                        let storageObj = snapshot1.val();
+                        if(storageObj.uid !== $("#txt_uid").val() && storageObj.account_type === 'MANAGER'){
+                            let dataSet = [storageObj.profile_pic_url, storageObj.first_name, storageObj.last_name, storageObj.email, storageObj.contact_no, storageObj.province_name, storageObj.district_name, storageObj.account_type, storageObj.status, storageObj.status+"-"+storageObj.uid];
+                            dataSrc.push(dataSet);
+                        }
+                        count++;
+                        if(count === snapshot.numChildren()){
+                            feedDT(dataSrc);
+                        }
+                    });
+                });
+            }
+        });
+
+        $('.dropify').dropify({
+            messages: {
+                default: 'Click here to select image.',
+                replace: 'Click here again if you want to change image.',
+                remove: 'Remove',
+                error: 'Ooops, Something went wrong.'
+            }
+        });
+
+        firebase.database().ref('web_data').child('province').on('value', function (snapshot){
+            if(snapshot.exists()){
+                $('#cmb_province').empty();
+                $('#cmb_province').append($('<option>', {value:'', text:'Select Province'}));
+                snapshot.forEach(function(childSnapshot){
+                    firebase.database().ref('web_data').child('province').child(childSnapshot.key).once('value', function (snapshot1){
+                        let storageObj = snapshot1.val();
+                        $('#cmb_province').append($('<option>', {value:storageObj.id, text:storageObj.name}));
+                    });
+                });
+            }
+        });
+
+        $('#cmb_province').on('change', function() {
+            $('#txt_province_name').val($('#cmb_province option:selected').text());
+            let selected = this.value;
+            firebase.database().ref('web_data').child('province').child(this.value).child('district').once('value', function (snapshot){
+                if(snapshot.exists()){
+                    $('#cmb_district').empty();
+                    $('#cmb_district').append($('<option>', {value:'', text:'Select Province'}));
+                    snapshot.forEach(function(childSnapshot){
+                        firebase.database().ref('web_data').child('province').child(selected).child('district').child(childSnapshot.key).once('value', function (snapshot1){
+                            let storageObj = snapshot1.val();
+                            $('#cmb_district').append($('<option>', {value:storageObj.d_id, text:storageObj.d_name}));
+                        });
+                    });
+                }
+            });
+        });
+
+        $('#edit_cmb_province').on('change', function() {
+            $('#edit_txt_province_name').val($('#edit_cmb_province option:selected').text());
+            let selected = this.value;
+            firebase.database().ref('web_data').child('province').child(this.value).child('district').once('value', function (snapshot){
+                if(snapshot.exists()){
+                    $('#edit_cmb_district').empty();
+                    $('#edit_cmb_district').append($('<option>', {value:'', text:'Select Province'}));
+                    snapshot.forEach(function(childSnapshot){
+                        firebase.database().ref('web_data').child('province').child(selected).child('district').child(childSnapshot.key).once('value', function (snapshot1){
+                            let storageObj = snapshot1.val();
+                            $('#edit_cmb_district').append($('<option>', {value:storageObj.d_id, text:storageObj.d_name}));
+                        });
+                    });
+                }
+            });
+        });
+
+        $('#edit_cmb_district').on('change', function() {
+            $('#edit_txt_district_name').val($('#edit_cmb_district option:selected').text());
+        });
+
+        $('#cmb_district').on('change', function() {
+            $('#txt_district_name').val($('#cmb_district option:selected').text());
+        });
+
+        $("#form_insert").validate({
+            ignore: [],
+            rules: {
+                txt_first_name: {
+                    required: true
+                },
+                cmb_province: {
+                    required: true
+                },
+                cmb_district: {
+                    required: true
+                },
+                txt_last_name: {
+                    required: true
+                },
+                txt_email: {
+                    required: true,
+                    email: true
+                },
+                txt_password: {
+                    required: true
+                },
+                txt_confirm_password: {
+                    required: true,
+                    equalTo: '#txt_password'
+                },
+                txt_img:{
+                    required: true
+                },
+                txt_tel:{
+                    required: true,
+                    digits: true,
+                    minlength: 10,
+                    maxlength:10
+                }
+            },
+            messages: {
+                txt_first_name: "First name required.!",
+                cmb_province: "Select a province.!",
+                cmb_district: "Select a district.!",
+                txt_last_name: "Last name required.!",
+                txt_img: "Profile picture required.!",
+                txt_email: {
+                    required: "Email address required.!",
+                    email: "Please check your email address format.!"
+                },
+                txt_password: "Password required.!",
+                txt_confirm_password: {
+                    required: "Confirm password required.!",
+                    equalTo: "Password and confirm password is not matching!."
+                },
+                txt_tel:{
+                    required: "Contact no required.!",
+                    digits: "Contact no can have digits only.!",
+                    minlength: "Contact no can have 10 digits only.!",
+                    maxlength: "Contact no can have 10 digits only.!"
+                }
+
+            },
+            highlight: function(element) {
+                $(element).addClass('error');
+            }, unhighlight: function(element) {
+                $(element).removeClass('error');
+            },
+            submitHandler: function(form){
+
+                $("#page_load").show();
+
+                let formData = new FormData(form);
+
+                $.ajax({
+                    url: '/user/createManager',
+                    data: formData,
+                    dataType: 'json',
+                    method: 'post',
+                    processData: false,
+                    enctype: 'multipart/form-data',
+                    contentType: false,
+                    cache: false,
+                    error: function(error){
+                        $("#page_load").hide();
+                        $.toast({
+                            heading: 'Error',
+                            text: 'Internal Server Error!',
+                            position: 'top-right',
+                            loaderBg:'#effff8',
+                            icon: 'error',
+                            hideAfter: 3500
+                        });
+                    },
+                    success: function(r){
+                        $("#page_load").hide();
+
+                        $("#txt_email").val('');
+                        $("#txt_password").val('');
+                        $("#txt_confirm_password").val('');
+                        $("#txt_first_name").val('');
+                        $("#txt_last_name").val('');
+                        $(".dropify-clear").trigger("click");
+                        $("#txt_tel").val('');
+                        $("#chk_create_account").prop("checked", false);
+                        $("#chk_food_access").prop("checked", false);
+                        $("#chk_grocery_access").prop("checked", false);
+                        $("#chk_pharmacy_access").prop("checked", false);
+                        $("#chk_taxi_access").prop("checked", false);
+                        $("#chk_courier_access").prop("checked", false);
+
+                        if(r.status === 200){
+                            $.toast({
+                                heading: 'Success',
+                                text: r.message,
+                                position: 'top-right',
+                                loaderBg:'#effff8',
+                                icon: 'info',
+                                hideAfter: 3500
+                            });
+                        }
+
+                        if(r.status == 500){
+                            $.toast({
+                                heading: 'Error',
+                                text: r.message,
+                                position: 'top-right',
+                                loaderBg:'#effff8',
+                                icon: 'error',
+                                hideAfter: 3500
+                            });
+                        }
+                    }
+                });
+            }
+        });
+
+        $("#form_update").validate({
+            ignore: [],
+            rules: {
+                edit_cmb_province: {
+                    required: true
+                },
+                edit_cmb_district: {
+                    required: true
+                }
+            },
+            messages: {
+                edit_cmb_province: "Select a province.!",
+                edit_cmb_district: "Select a district.!"
+            },
+            highlight: function(element) {
+                $(element).addClass('error');
+            }, unhighlight: function(element) {
+                $(element).removeClass('error');
+            },
+            submitHandler: function(form){
+
+                $("#page_load").show();
+
+                $.ajax({
+                    url: '/user/updateRegionalUser',
+                    data: $('#form_update').serializeArray(),
+                    dataType: 'json',
+                    method: 'post',
+                    error: function(error){
+                        $("#page_load").hide();
+                        $.toast({
+                            heading: 'Error',
+                            text: 'Internal Server Error!',
+                            position: 'top-right',
+                            loaderBg:'#effff8',
+                            icon: 'error',
+                            hideAfter: 3500
+                        });
+                    },
+                    success: function(r){
+                        $("#page_load").hide();
+
+                        if(r.status === 200){
+                            $.toast({
+                                heading: 'Success',
+                                text: r.message,
+                                position: 'top-right',
+                                loaderBg:'#effff8',
+                                icon: 'info',
+                                hideAfter: 3500
+                            });
+
+                            $('#responsive-modal').modal('hide');
+                        }
+
+                        if(r.status == 500){
+                            $.toast({
+                                heading: 'Error',
+                                text: r.message,
+                                position: 'top-right',
+                                loaderBg:'#effff8',
+                                icon: 'error',
+                                hideAfter: 3500
+                            });
+                        }
+                    }
+                });
+            }
+        });
+
+
+    });
+
+
+
+</script>
+

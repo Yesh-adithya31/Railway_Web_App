@@ -1,0 +1,489 @@
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h3 class="text-themecolor">Manage Train Schedule</h3>
+    </div>
+    <div class="col-md-7 align-self-center">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)"> Train Schedule</a></li>
+            <li class="breadcrumb-item active">Manage  Train Schedule</li>
+        </ol>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <!-- Row -->
+    <!-- Row -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div id="div_button" class="col-md-offset-3 col-md-9">
+                    <button onclick="show_insert_form()" class="btn btn-info">Create  Train Schedule</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6"> </div>
+    </div><br>
+    <!-- row -->
+
+    <!-- Row -->
+    <div id="div_add">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-outline-info">
+                    <div class="card-header">
+                        <h4 class="m-b-0 text-white">Create  Train Schedule form</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="form_insert" name="form_insert" enctype="multipart/form-data" role="form" method="POST" class="form-horizontal">
+                            <div class="form-body">
+                                <h3 class="box-title"> Train Schedule information</h3>
+                                <hr class="m-t-0 m-b-40">
+                                <div class="row p-t-20">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Tarin Location</label>
+                                            <select class="form-control" id="cmb_location" name="cmb_location" tabindex="1"></select>
+                                            <!-- <input type="hidden" id="txt_cmb_location" name="txt_cmb_station" class="form-control"> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Train ID</label>
+                                            <input type="text" id="txt_trainID" name="txt_trainID"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">From Station</label>
+                                            <select class="form-control" id="cmb_station" name="cmb_station" tabindex="1"></select>
+                                            <!-- <input type="hidden" id="txt_cmb_station" name="txt_cmb_station" class="form-control"> -->
+                                        </div>
+                                    </div>
+                                                                        
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">To Station</label>
+                                            <select class="form-control" id="cmb_to_station" name="cmb_to_station" tabindex="1"></select>
+                                            <!-- <input type="hidden" id="txt_cmb_to_station" name="txt_cmb_to_station" class="form-control"> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Depature (00.00 AM or PM)</label>
+                                            <input type="text" id="txt_depature" name="txt_depature"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Arrival (00.00 AM or PM)</label>
+                                            <input type="text" id="txt_arrival" name="txt_arrival"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">2nd Class Local Fee</label>
+                                            <input type="text" id="txt_2_local_fee" name="txt_2_local_fee"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">2nd Class Foreign Fee</label>
+                                            <input type="text" id="txt_2_foreign_fee" name="txt_2_foreign_fee"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">3rd Class Local Fee</label>
+                                            <input type="text" id="txt_3_local_fee" name="txt_3_local_fee"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">3rd Class Foreign Fee</label>
+                                            <input type="text" id="txt_3_foreign_fee" name="txt_3_foreign_fee"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Day</label>
+                                            <input type="text" id="txt_day" name="txt_day"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Day String</label>
+                                            <input type="text" id="txt_dayString" name="txt_dayString"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <hr>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-offset-3 col-md-9">
+                                                <button type="submit" class="btn btn-warning">Insert</button>
+                                                <button type="reset" class="btn btn-inverse">Clear</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"> </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Row -->
+
+    <!-- Row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-outline-info">
+                <div class="card-header">
+                    <h4 class="m-b-0 text-white">Train Schedule details</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive m-t-40">
+                        <table id="myTable" class="table table-bordered table-striped">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Row -->
+</div>
+
+
+
+<script>
+
+
+
+    function show_insert_form() {
+        let content = '';
+        content += '<button onclick="hide_insert_form()" class="btn btn-info">Hide Form</button>';
+        $('#div_button').html(content);
+        $("#div_add").show();
+    }
+
+    function hide_insert_form() {
+        let content = '';
+        content += '<button onclick="show_insert_form()" class="btn btn-info">Create Train Schedule</button>';
+        $('#div_button').html(content);
+        $("#div_add").hide();
+    }
+
+
+    function feedDT(dataSrc) {
+        $('#myTable').DataTable({
+            "bDestroy": true,
+            data: dataSrc,
+            language: {
+                "emptyTable": "No files to show..."
+            },
+            columns: [
+
+                { title: "Main Station" },
+                { title: "Train ID" },
+                { title: "From Station"},
+                { title: "To Station"},
+                { 
+                    title: "Depature Time",
+                    mRender: function (data) {
+                        return '<span class="label label-primary"> ' + data + '</span>'
+                    }
+                },
+                { 
+                    title: "Arrival Time",
+                    mRender: function (data) {
+                        return '<span class="label label-primary"> ' + data + '</span>'
+                    }
+                },
+                { 
+                    title: "2nd Class A/N",
+                    mRender: function (data) {
+                        return '<span class="label label-success"> ' + data + '</span>'
+                    }
+                },
+                {
+                    title: "2nd Class Local Price",
+                    mRender: function (data) {
+                        return '<span class="label label-info"> Rs.' + data + '</span>'
+                    }
+                },
+                {
+                    title: "2nd Class Foreign Price",
+                    mRender: function (data) {
+                        return '<span class="label label-info"> Rs.' + data + '</span>'
+                    }
+                },
+                { 
+                    title: "3rd Class A/N",
+                    mRender: function (data) {
+                        return '<span class="label label-success"> ' + data + '</span>'
+                    }
+                },
+                {
+                    title: "3rd Class Local Price",
+                    mRender: function (data) {
+                        return '<span class="label label-info"> Rs.' + data + '</span>'
+                    }
+                },
+                {
+                    title: "3rd Class Foreign Price",
+                    mRender: function (data) {
+                        return '<span class="label label-info"> Rs.' + data + '</span>'
+                    }
+                },
+                { title: "Day"},
+                { title: "Day String"},
+            ]
+
+
+        });
+    }
+
+    $(document).ready(function () {
+
+        firebase.database().ref('train_station').on('value', function (snapshot) {
+            let dataSrc = [];
+            let count = 0;
+            if (snapshot.exists()) {
+                snapshot.forEach(function (childSnapshot) {
+                    firebase.database().ref('train_station').child(childSnapshot.key).on('value', function (snapshot1) {
+                        let storageObj = snapshot1.val();
+                            let dataSet = [storageObj.endAndBegin,storageObj.trainID, storageObj.fromStation, storageObj.toStation, storageObj.depature, storageObj.arrival ,storageObj.secondClassAN,storageObj.secondClassLocal,storageObj.secondClassForeign,storageObj.thirdClassAN,storageObj.thirdClassLocal,storageObj.thirdClassForeign, storageObj.day, storageObj.dayString];
+                            dataSrc.push(dataSet);
+                        count++;
+                        if (count === snapshot.numChildren()) {
+                            feedDT(dataSrc);
+                        }
+                    });
+                });
+            }
+        });
+
+
+        // Combo box values
+        firebase.database().ref('web_data').child('main_stations').on('value', function (snapshot){
+            if(snapshot.exists()){
+                $('#cmb_location').empty();
+                $('#cmb_location').append($('<option>', {value:'', text:'Select Train Station'}));
+                snapshot.forEach(function(childSnapshot){
+                    firebase.database().ref('web_data').child('main_stations').child(childSnapshot.key).once('value', function (snapshot1){
+                        let storageObj = snapshot1.val();
+                        $('#cmb_location').append($('<option>', {value:storageObj.name, text:storageObj.name}));
+                    });
+                });
+            }
+        });
+
+        firebase.database().ref('web_data').child('locations').on('value', function (snapshot){
+            if(snapshot.exists()){
+                $('#cmb_station').empty();
+                $('#cmb_station').append($('<option>', {value:'', text:'Select Train Station'}));
+                snapshot.forEach(function(childSnapshot){
+                    firebase.database().ref('web_data').child('locations').child(childSnapshot.key).once('value', function (snapshot1){
+                        let storageObj = snapshot1.val();
+                        $('#cmb_station').append($('<option>', {value:storageObj.name, text:storageObj.name}));
+                    });
+                });
+            }
+        });
+
+        firebase.database().ref('web_data').child('locations').on('value', function (snapshot){
+            if(snapshot.exists()){
+                $('#cmb_to_station').empty();
+                $('#cmb_to_station').append($('<option>', {value:'', text:'Select Train Station'}));
+                snapshot.forEach(function(childSnapshot){
+                    firebase.database().ref('web_data').child('locations').child(childSnapshot.key).once('value', function (snapshot1){
+                        let storageObj = snapshot1.val();
+                        $('#cmb_to_station').append($('<option>', {value:storageObj.name, text:storageObj.name}));
+                    });
+                });
+            }
+        });
+
+        $("#div_add").hide();
+        $("#div_edit").hide();
+        $("#txt_trainID").val('');
+        $("#txt_depature").val('');
+        $("#txt_arrival").val('');
+        $("#txt_2_local_fee").val('');
+        $("#txt_2_foreign_fee").val('');
+        $("#txt_3_local_fee").val('');
+        $("#txt_3_foreign_fee").val('');
+        $("#txt_day").val('');
+        $("#txt_dayString").val('');
+
+        $("#form_insert").validate({
+            ignore: [],
+            rules: {
+                cmb_location: {
+                    required: true
+                },
+                txt_trainID: {
+                    required: true
+                },
+                cmb_station: {
+                    required: true,
+                },
+                cmb_to_station: {
+                    required: true
+                },
+                txt_depature: {
+                    required: true,
+                },
+                txt_arrival: {
+                    required: true
+                },
+                txt_2_local_fee: {
+                    required: true,
+                    number: true,
+                },
+                txt_2_foreign_fee: {
+                    required: true,
+                    number: true,
+                },
+                txt_3_local_fee: {
+                    required: true,
+                    number: true,
+                },
+                txt_3_foreign_fee: {
+                    required: true,
+                    number: true,
+                },
+                txt_day: {
+                    required: true,
+                },
+                txt_dayString: {
+                    required: true
+                }
+            },
+            messages: {
+                cmb_location: "Train Location required.!",
+                txt_trainID: "Train ID required.!",
+                cmb_station: "From Station required.!",
+                cmb_to_station: "To Station required.!",
+                txt_depature: "Depature Time required.!",
+                txt_arrival: "Arrival Time required.!",
+                txt_2_local_fee: {
+                    required : "2nd Class Local Fee  required.!",
+                    number : "Local Fee can have numbers only!"
+                },
+                txt_2_foreign_fee: {
+                    required : "2nd Class Foreign Fee  required.!",
+                    number : "Foreign Fee can have numbers only!"
+                },
+                txt_3_local_fee: {
+                    required : "3rd Class Local Fee  required.!",
+                    number : "Local Fee can have numbers only!"
+                },
+                txt_3_foreign_fee: {
+                    required : "3rd Class Local Fee  required.!",
+                    number : "Foreign Fee can have numbers only!"
+                },
+                txt_day: "Day is required.!",
+                txt_dayString: "Day String is required.!",
+
+            },
+            highlight: function (element) {
+                $(element).addClass('error');
+            }, unhighlight: function (element) {
+                $(element).removeClass('error');
+            },
+            submitHandler: function (form) {
+
+                $("#page_load").show();
+                let date = Date.now()
+                firebase.database().ref('train_station').child(date).set({
+                    endAndBegin: $("#cmb_location").val(),
+                    trainID: $("#txt_trainID").val(),
+                    fromStation: $("#cmb_station").val(),
+                    toStation: $("#cmb_to_station").val(),
+                    depature: $("#txt_depature").val(),
+                    arrival: $("#txt_arrival").val(),
+                    secondClassAN: "Available",
+                    secondClassLocal: $("#txt_2_local_fee").val(),
+                    secondClassForeign: $("#txt_2_foreign_fee").val(),
+                    thirdClassAN: "Available",
+                    thirdClassLocal: $("#txt_3_local_fee").val(),
+                    thirdClassForeign: $("#txt_3_foreign_fee").val(),
+                    day: $("#txt_day").val(),
+                    dayString: $("#txt_dayString").val(),
+                    uid: date
+                }, function (errors) {
+                    if (errors) {
+                        console.log(errors);
+                        $.toast({
+                            heading: 'Error',
+                            text: 'Firebase error.!',
+                            position: 'top-right',
+                            loaderBg: '#effff8',
+                            icon: 'error',
+                            hideAfter: 3500
+                        });
+                    } else {
+
+                        $("#page_load").hide();
+
+                        hide_insert_form();
+
+                        $("#txt_trainID").val('');
+                        $("#txt_depature").val('');
+                        $("#txt_arrival").val('');
+                        $("#txt_2_local_fee").val('');
+                        $("#txt_2_foreign_fee").val('');
+                        $("#txt_3_local_fee").val('');
+                        $("#txt_3_foreign_fee").val('');
+                        $("#txt_day").val('');
+                        $("#txt_dayString").val('');
+                        $('#cmb_location').val('');
+                        $('#cmb_station').val('');
+                        $('#cmb_to_station').val('');
+
+                        $.toast({
+                            heading: 'Success',
+                            text: 'Train Schedule created successfully.!',
+                            position: 'top-right',
+                            loaderBg: '#effff8',
+                            icon: 'success',
+                            hideAfter: 3500
+                        });
+                        
+                    }
+                });
+
+            }
+        });
+
+
+
+
+    });
+
+</script>
